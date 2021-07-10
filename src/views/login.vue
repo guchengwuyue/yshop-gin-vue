@@ -3,7 +3,7 @@
     <div style="display:flex;justify-content:space-between;align-items: center;">
       <div style="padding: 0 60px 0 0">
         <h3 style="color: #ffffff;font-size: 24px;padding: 0;margin-bottom: 10px">
-          YSHOP-GO RBAC管理后台系统
+          Beego-Vue-Go RBAC管理后台系统
         </h3>
         <ul style="margin: 0;color: #ffffff;font-size: 15px;line-height: 25px;padding-left: 20px">
           <li>Go1.15.x</li>
@@ -19,7 +19,7 @@
       </div>
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" label-position="left" label-width="0px" class="login-form">
       <h3 class="title">
-        YSHOP-GO后台管理系统-1.0
+        Beego-Vue-Go后台管理系统-1.1
       </h3>
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">

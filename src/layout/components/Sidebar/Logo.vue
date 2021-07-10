@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      title: 'YSHOP-GO后台管理',
+      title: 'Beego-Vue-Go后台管理',
       logo: Logo
     }
   }

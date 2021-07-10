@@ -2,7 +2,7 @@ module.exports = {
   /**
    * @description 网站标题
    */
-  title: 'YSHOP-GO-V1.0',
+  title: 'Beego-Vue-Go-V1.1',
   /**
    * @description 是否显示 tagsView
    */
