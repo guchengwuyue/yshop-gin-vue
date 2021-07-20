@@ -2,7 +2,7 @@ module.exports = {
   /**
    * @description 网站标题
    */
-  title: 'Beego-Vue-Go-V1.1',
+  title: 'Beego-Vue-Go-V1.2',
   /**
    * @description 是否显示 tagsView
    */
@@ -42,7 +42,7 @@ module.exports = {
   /**
    * 底部文字，支持html语法
    */
-  footerTxt: '© 2019-2020 YSHOP <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">All Rights Reserved</a>',
+  footerTxt: '© 2019-2021 yixiang.co <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">All Rights Reserved</a>',
   /**
    * 备案号
    */
