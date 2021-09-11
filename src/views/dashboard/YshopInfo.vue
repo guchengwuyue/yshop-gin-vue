@@ -7,7 +7,7 @@
             <span style="font-weight: bolder">项目信息</span>
           </div>
           <div class="text item">
-            <span style="font-weight: bolder">Beego-Vue-Go基于当前流行技术组合的前后端RBAC管理系统：</span>
+            <span style="font-weight: bolder">go-mall基于当前流行技术组合的前后端RBAC管理系统：</span>
             Go1.15.x+Beego2.x+Jwt+Redis+Mysql8+Vue
             的前后端分离系统，权限控制采用 RBAC，支持数据字典与数据权限管理，支持动态路由等
           </div>

@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      title: 'Beego-Vue-Go后台管理',
+      title: 'go-mall商城系统',
       logo: Logo
     }
   }
