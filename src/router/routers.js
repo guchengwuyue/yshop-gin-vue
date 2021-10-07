@@ -67,7 +67,7 @@ export const constantRouterMap = [
     },
     component: (resolve) => require(['@/components/editorMaterial/index'], resolve),
     hidden: true
-  },
+  }
 ]
 
 export default new Router({
