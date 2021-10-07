@@ -1,36 +1,43 @@
 <template>
-  <div v-if="type == 'image'">
-    <div v-if="myValue != ''">
-      <ul class="el-upload-list el-upload-list--picture-card">
-        <li tabindex="0" class="el-upload-list__item is-ready" :style="'width: '+width+'px;height: '+height+'px'">
-          <div>
-            <img :src="myValue" alt="" class="el-upload-list__item-thumbnail">
-            <span class="el-upload-list__item-actions">
-              <span class="el-upload-list__item-delete" @click="deleteMaterial">
-                <i class="el-icon-delete" />
-              </span>
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div v-else tabindex="0" class="el-upload el-upload--picture-card" :style="'width: '+width+'px;height: '+height+'px;'+'line-height:'+height+'px;'" @click="toSeleteMaterial">
-      <i class="el-icon-plus" />
-    </div>
+  <div>
+    <!--<ul v-for="(item,index) in value" :key="index" class="el-upload-list el-upload-list&#45;&#45;picture-card">-->
+    <!--<li tabindex="0" class="el-upload-list__item is-ready" :style="'width: '+width+'px;height: '+height+'px'">-->
+    <!--<div>-->
+    <!--<img :src="item" alt="" class="el-upload-list__item-thumbnail">-->
+    <!--<span class="el-upload-list__item-actions">-->
+    <!--<span v-if="index != 0" class="el-upload-list__item-preview" @click="moveMaterial(index,'up')">-->
+    <!--<i class="el-icon-back" />-->
+    <!--</span>-->
+    <!--<span class="el-upload-list__item-preview" @click="zoomMaterial(index)">-->
+    <!--<i class="el-icon-view" />-->
+    <!--</span>-->
+    <!--<span class="el-upload-list__item-delete" @click="deleteMaterial(index)">-->
+    <!--<i class="el-icon-delete" />-->
+    <!--</span>-->
+    <!--<span v-if="index != value.length-1" class="el-upload-list__item-preview" @click="moveMaterial(index,'down')">-->
+    <!--<i class="el-icon-right" />-->
+    <!--</span>-->
+    <!--</span>-->
+    <!--</div>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--<div v-if="num > value.length" tabindex="0" class="el-upload el-upload&#45;&#45;picture-card" :style="'width: '+width+'px;height: '+height+'px;'+'line-height:'+height+'px;'" @click="toSeleteMaterial">-->
+    <!--<i class="el-icon-plus" />-->
+    <!--</div>-->
 
-    <el-dialog
-      append-to-body
-      :visible.sync="dialogVisible"
-      width="35%"
-    >
-      <img :src="url" alt="" style="width: 100%">
-    </el-dialog>
+    <!--<el-dialog-->
+    <!--append-to-body-->
+    <!--:visible.sync="dialogVisible"-->
+    <!--width="35%"-->
+    <!--&gt;-->
+    <!--<img :src="url" alt="" style="width: 100%">-->
+    <!--</el-dialog>-->
 
-    <el-dialog
+    <div
       title="图片素材库"
       append-to-body
       :visible.sync="listDialogVisible"
-      width="70%"
+      width="100%"
     >
       <el-container>
         <el-aside width="unset">
@@ -89,7 +96,7 @@
                 show-icon
               />
               <el-row :gutter="5">
-                <el-checkbox-group v-model="urls" :max="num - myValue.length">
+                <el-checkbox-group v-model="urls" :max="num - value.length">
                   <el-col v-for="(item,index) in tableData" :key="index" :span="4">
                     <el-card :body-style="{ padding: '5px' }">
                       <el-image
@@ -129,10 +136,9 @@
         </el-main>
       </el-container>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="listDialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="sureUrls">确 定</el-button>
       </span>
-    </el-dialog>
+    </div>
   </div>
 
 </template>
@@ -142,13 +148,17 @@ import { getList as materialgroupPage, addObj as materialgroupAdd, delObj as mat
 import { getPage, addObj, delObj, putObj } from '@/api/tools/material'
 import { getToken } from '@/utils/auth'
 import { mapGetters } from 'vuex'
+import '../../../public/UEditor/dialogs/internal'
 
 export default {
   name: 'MaterialList',
   props: {
     // 素材数据
     value: {
-      type: String
+      type: Array,
+      default() {
+        return []
+      }
     },
     // 素材类型
     type: {
@@ -181,10 +191,9 @@ export default {
       headers: {
         Authorization: getToken()
       },
-      dialogVisible: false,
-      myValue: this.value,
+      dialogVisible: true,
       url: '',
-      listDialogVisible: false,
+      listDialogVisible: true,
       materialgroupList: [],
       materialgroupObjId: '',
       materialgroupObj: {},
@@ -208,10 +217,9 @@ export default {
       'uploadApi'
     ])
   },
-  watch: {
-    value: function(val) {
-      this.myValue = val
-    }
+
+  mounted() {
+    this.toSeleteMaterial()
   },
   methods: {
     moveMaterial(index, type) {
@@ -230,14 +238,14 @@ export default {
       this.dialogVisible = true
       this.url = this.value[index]
     },
-    deleteMaterial() {
+    deleteMaterial(index) {
       const that = this
       this.$confirm('是否确认删除？', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(function() {
-        that.myValue = ''
+        that.value.splice(index, 1)
         that.urls = []
       })
     },
@@ -453,9 +461,13 @@ export default {
       return isPic && isLt2M
     },
     sureUrls() {
-      console.log('this.urls:' + this.urls)
-      this.myValue = this.urls[0]
-      this.$emit('input', this.urls[0])
+      let str = ''
+      this.urls.forEach(item => {
+        str += '<img src="' + item + '">'
+        // this.$set(this.value, this.value.length, item)
+      })
+      nowEditor.dialog.close(true)
+      nowEditor.editor.setContent(str, true)
       this.listDialogVisible = false
     }
   }
@@ -463,7 +475,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  /deep/ .el-icon-circle-close{
+  ::v-deep .el-icon-circle-close{
     color: red;
   }
   .material-name{

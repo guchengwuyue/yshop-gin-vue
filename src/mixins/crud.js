@@ -61,7 +61,7 @@ export default {
         this.loading = true
         // 请求数据
         initData(this.url, this.getQueryParame()).then(data => {
-          this.cateList = data.cateList
+          this.cateList = data.data.extendData
           this.total = data.data.totalElements
           this.data = data.data.content
           // time 毫秒后显示表格

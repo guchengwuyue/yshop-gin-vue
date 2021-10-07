@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function add(data) {
   return request({
-    url: 'api/yxStoreProduct/addOrSave',
+    url: 'shop/product/addOrSave',
     method: 'post',
     data
   })
@@ -10,14 +10,14 @@ export function add(data) {
 
 export function del(id) {
   return request({
-    url: 'api/yxStoreProduct/' + id,
+    url: 'shop/product/' + id,
     method: 'delete'
   })
 }
 
 export function edit(data) {
   return request({
-    url: 'api/yxStoreProduct',
+    url: 'shop/product',
     method: 'put',
     data
   })
@@ -25,7 +25,7 @@ export function edit(data) {
 
 export function onsale(id, data) {
   return request({
-    url: 'api/yxStoreProduct/onsale/' + id,
+    url: 'shop/product/onsale/' + id,
     method: 'post',
     data
   })
@@ -33,14 +33,14 @@ export function onsale(id, data) {
 
 export function recovery(id) {
   return request({
-    url: 'api/yxStoreProduct/recovery/' + id,
+    url: 'shop/product/recovery/' + id,
     method: 'delete'
   })
 }
 
 export function isFormatAttr(id, data) {
   return request({
-    url: 'api/yxStoreProduct/isFormatAttr/' + id,
+    url: 'shop/product/isFormatAttr/' + id,
     method: 'post',
     data
   })
@@ -48,14 +48,14 @@ export function isFormatAttr(id, data) {
 
 export function isFormatAttrForActivity(id, data) {
   return request({
-    url: 'api/yxStoreProduct/isFormatAttrForActivity/' + id,
+    url: 'shop/product/isFormatAttrForActivity/' + id,
     method: 'post',
     data
   })
 }
 export function setAttr(id, data) {
   return request({
-    url: 'api/yxStoreProduct/setAttr/' + id,
+    url: 'shop/product/setAttr/' + id,
     method: 'post',
     data
   })
@@ -63,21 +63,21 @@ export function setAttr(id, data) {
 
 export function clearAttr(id) {
   return request({
-    url: 'api/yxStoreProduct/clearAttr/' + id,
+    url: 'shop/product/clearAttr/' + id,
     method: 'post'
   })
 }
 
 export function getAttr(id) {
   return request({
-    url: 'api/yxStoreProduct/attr/' + id,
+    url: 'shop/product/attr/' + id,
     method: 'get'
   })
 }
 
 export function getInfo(id) {
   return request({
-    url: 'api/yxStoreProduct/info/' + id,
+    url: 'shop/product/info/' + id,
     method: 'get'
   })
 }
