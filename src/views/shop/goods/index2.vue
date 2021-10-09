@@ -4,9 +4,6 @@
     <div class="head-container">
       <!-- 搜索 -->
       <el-input v-model="query.value" clearable placeholder="输入搜索内容" style="width: 200px;" class="filter-item" @keyup.enter.native="toQuery" />
-      <el-select v-model="query.type" clearable placeholder="类型" class="filter-item" style="width: 130px">
-        <el-option v-for="item in queryTypeOptions" :key="item.key" :label="item.display_name" :value="item.key" />
-      </el-select>
       <el-select v-model="cateId"  clearable placeholder="商品分类" class="filter-item" style="width: 130px">
         <el-option v-for="item in cateList" :disabled="item.disabled === 0"
                    :value="item.value"
@@ -33,7 +30,7 @@
         </template>
       </el-table-column>
       <el-table-column prop="storeName" label="商品名称" />
-      <el-table-column prop="storeCategory.cateName" label="分类名称" />
+      <el-table-column prop="productCate.cateName" label="分类名称" />
       <el-table-column prop="price" label="商品价格" />
       <el-table-column prop="sales" label="销量" />
       <el-table-column prop="stock" label="库存" />
@@ -110,9 +107,8 @@ export default {
       const sort = 'id,desc'
       this.params = { page: this.page, size: this.size, sort: sort, isShow: 0, isDel: 0,cateId: this.cateId  }
       const query = this.query
-      const type = query.type
       const value = query.value
-      if (type && value) { this.params[type] = value }
+      if (value) { this.params['blurry'] = value }
       return true
     },
     subDelete(id) {

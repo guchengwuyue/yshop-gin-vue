@@ -574,7 +574,7 @@ export default {
           this.attrs = data.items || [];
           that.formValidate = data;
           that.formValidate.cate_id = cate_id;
-          that.oneFormValidate = [data.attr];
+          that.oneFormValidate = data.attrs;
           that.formValidate.header = [];
           that.generate();
           that.manyFormValidate = data.attrs;

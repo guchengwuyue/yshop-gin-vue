@@ -7,9 +7,9 @@
             <span style="font-weight: bolder">项目信息</span>
           </div>
           <div class="text item">
-            <span style="font-weight: bolder">go-mall基于当前流行技术组合的前后端RBAC管理系统：</span>
-            Go1.15.x+Beego2.x+Jwt+Redis+Mysql8+Vue
-            的前后端分离系统，权限控制采用 RBAC，支持数据字典与数据权限管理，支持动态路由等
+            <span style="font-weight: bolder">go-mall基于当前流行技术组合的前后端商城管理系统：</span>
+            go-mall意象商城后台管理系统(目前版本v1.3)基于当前流行技术组合的前后端商城管理系统：Go1.15.x+Beego2.x+Jwt+Redis+Mysql8+Vue 的前后端分离电商管理系统，权限控制采用RBAC，
+            支持商城多级分类，商品管理、商品sku、图片素材、数据字典与数据权限管理，支持动态路由等
           </div>
           <div class="text item">
             <span style="font-weight: bolder">系统功能：</span><br>
@@ -19,6 +19,10 @@
             4、部门管理：可配置系统组织架构，树形表格展示 <br>
             5、岗位管理：配置各个部门的职位 <br>
             6、字典管理：可维护常用一些固定的数据，如：状态，性别等 <br>
+            7、素材管理：图片素材库 <br>
+            8、分类管理：商品多级分类 <br>
+            9、sku管理：商品sku规则管理 <br>
+           10、商品管理：可以添加单规格或者多规格商品含有百度编辑器 <br>
           </div>
       
     
