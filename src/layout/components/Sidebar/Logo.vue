@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      title: 'go-mall商城系统',
+      title: 'yshop-gin商城系统',
       logo: Logo
     }
   }

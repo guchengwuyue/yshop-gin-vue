@@ -185,6 +185,7 @@ export default {
     // 新增与编辑前做的操作
     [CRUD.HOOK.afterToCU](crud, form) {
       crudMenu.getMenusTree().then(res => {
+        console.log(888)
         this.menus = []
         const menu = { id: 0, label: '顶级类目', children: [] }
         menu.children = res.data

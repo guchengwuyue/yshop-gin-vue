@@ -2,7 +2,7 @@ module.exports = {
   /**
    * @description 网站标题
    */
-  title: 'go-mall-V1.3',
+  title: 'yshop-gin-V1.0',
   /**
    * @description 是否显示 tagsView
    */

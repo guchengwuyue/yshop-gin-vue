@@ -3,12 +3,13 @@
     <div style="display:flex;justify-content:space-between;align-items: center;">
       <div style="padding: 0 60px 0 0">
         <h3 style="color: #ffffff;font-size: 24px;padding: 0;margin-bottom: 10px">
-          go-mall商城管理后台系统
+          yshop-gin商城管理后台系统
         </h3>
         <ul style="margin: 0;color: #ffffff;font-size: 15px;line-height: 25px;padding-left: 20px">
-          <li>Go1.15.x</li>
-          <li>Beego2.x</li>
+          <li>Gin1.7.x</li>
           <li>Mysql8</li>
+          <li>Gorm</li>
+          <li>Casbin</li>
           <li>Jwt</li>
           <li>Redis</li>
           <li>Vue</li>
@@ -19,7 +20,7 @@
       </div>
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" label-position="left" label-width="0px" class="login-form">
       <h3 class="title">
-        go-mall商城后台管理系统-1.3
+        yshop-gin商城后台管理系统-1.0
       </h3>
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
@@ -136,7 +137,8 @@ export default {
           this.$store.dispatch('Login', user).then(() => {
             this.loading = false
             this.$router.push({ path: this.redirect || '/' })
-          }).catch(() => {
+          }).catch((e) => {
+            console.log(e)
             this.loading = false
             this.getCode()
           })

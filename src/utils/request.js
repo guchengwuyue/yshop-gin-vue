@@ -31,21 +31,25 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const code = response.status
+    console.log("request")
+    console.log(code)
     //console.log(response.data.status)
     const newCode = response.data.status
-    if (newCode != 200 || code < 200 || code > 300) {
-      Notification.error({
-        title: response.data.msg
-      })
-      return Promise.reject('error')
-    } else {
+    console.log(newCode)
+    // if (newCode != 200 || code < 200 || code > 300) {
+    //   Notification.error({
+    //     title: response.data.msg
+    //   })
+    //   return Promise.reject('error')
+    // } else {
       return response.data
-    }
+    //}
   },
   error => {
+    console.log("errror")
     let code = 0
     try {
-      code = error.response.data.status
+      code = error.response.status
     } catch (e) {
       if (error.toString().indexOf('Error: timeout') !== -1) {
         Notification.error({
@@ -73,7 +77,7 @@ service.interceptors.response.use(
       } else if (code === 403) {
         router.push({ path: '/401' })
       } else {
-        const errorMsg = error.response.data.message
+        const errorMsg = error.response.data.msg
         if (errorMsg !== undefined) {
           Notification.error({
             title: errorMsg,

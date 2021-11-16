@@ -14,11 +14,11 @@ const api = {
     // 上传文件到七牛云
     qiNiuUploadApi: baseUrl + '/api/qiNiuContent',
 
-    uploadApi: '/admin/material/upload',
+    uploadApi: baseUrl + '/admin/material/upload',
     // Sql 监控
     sqlApi: baseUrl + '/druid',
     // swagger
-    swaggerApi: baseUrl + '/swagger',
+    swaggerApi: baseUrl + '/swagger/index.html',
     // 文件上传
     fileUploadApi: baseUrl + '/api/localStorage',
     // baseUrl，

@@ -1,21 +1,27 @@
-<h1 style="text-align: center">go-mall意象商城后台管理系统</h1>
+<h1 style="text-align: center">yshop-gin意象商城后台管理系统</h1>
+
+
 
 
 #### 项目简介
-go-mall意象商城后台管理系统(目前版本v1.3)基于当前流行技术组合的前后端商城管理系统：Go1.15.x+Beego2.x+Jwt+Redis+Mysql8+Vue
+yshop-gin意象商城后台管理系统(目前版本v1.0)基于当前流行技术组合的前后端商城管理系统：Gin+Gorm+Casbin+Jwt+Redis+Mysql8+Vue
 的前后端分离电商管理系统，权限控制采用RBAC，支持商城多级分类，商品管理、商品sku、图片素材、数据字典与数据权限管理，支持动态路由等
 
 **体验地址：**  [https://go.yixiang.co](https://go.yixiang.co)
 
 **账号密码：** `admin / 123456`
 
+#### 项目文档（还在完善中...，小伙伴记得star）
+
+ 文档地址：[https://gitee.com/guchengwuyue/yshop-gin/wikis/pages](http://gitee.com/guchengwuyue/yshop-gin/wikis/pages)
+
 
 #### 项目源码
 
 |     |   后端源码  |   前端源码  |
 |---  |--- | --- |
-|  码云  |  https://gitee.com/guchengwuyue/go-mall   |  https://gitee.com/guchengwuyue/go-mall-vue   |
-|  github   | https://github.com/guchengwuyue/go-mall  |  https://github.com/guchengwuyue/go-mall-vue |
+|  码云  |  https://gitee.com/guchengwuyue/yshop-gin   |  https://gitee.com/guchengwuyue/yshop-gin-vue   |
+|  github   | https://github.com/guchengwuyue/yshop-gin  |  https://github.com/guchengwuyue/yshop-gin-vue |
 
 
 ####  系统功能
@@ -34,48 +40,40 @@ go-mall意象商城后台管理系统(目前版本v1.3)基于当前流行技术�
 #### 详细结构
 
 ```
-- common 公共模块
-    - jwt jwt模块
-    - redis redis模块
-    - untils 工具模块
-    - constant.go 常量
+- app 应用模块
+    - controllers 控制器模块
+    - models 模型模块
+    - service 服务模块
+      - product_serive
+      ......
 - conf 公共配置
-- controllers 控制器模块
-	- admin 管理后台
-	- app app模块
-    - shop 商城模块
-    - base.go 公共控制器
-- fiters 过滤器
-- initialize 初始化
+- docs swagger
+- middleware 中间件
+	- cors.go 
+	......
+- pkg 程序应用包
+  - app
+  - casbin
+  - jwt
+  .....
+- routere 路由
 - logs 日志存放
-- models 公共模型
-	- dto dto模块
-	- vo vo模块
-    - xxx.go 公共model
-- routers 路由
-- static 上传图片资源目录
-- swagger swagger
-- tests tests
+- runtime 资源目录
 ```
 #### 配置、启动、部署
 ```
-1、安装go>=1.15,这个可以https://studygolang.com/dl下载
 
-2、开启mod： go env -w GO111MODULE=on
+1、下载项目：git clone https://github.com/guchengwuyue/yshop-gin-vue
+2、npm install
+3、配置项目，路径：./env.development  与 ./env.production 
+上面一个开发环境，一个是生产环境下的配置
+ENV = 'development'
+# 接口地址
+VUE_APP_BASE_API  = 'http://localhost:8080'  //配置后端api即可
 
-3、配置代理：go env -w GOPROXY=https://goproxy.cn,direct 这个让下载依赖速度更快
-
-4。下载项目：git clone https://gitee.com/guchengwuyue/go-mall.git
-
-5、go mod tidy 安装所需依赖
-
-6、导入sql/yshop_go.sql,修改conf/app.conf 里数据库与redis配置
-
-7、bee run 启动即可
-
-8、线上部署： bee pack  -be GOOS=linux  打包然后上传服务器命令： nohup ./yshop & 
-
-9、配置nginx 反向代理即可
+4、本地运行：npm run dev
+5、线上部署：npm run build 然后上传./dist/下编译后的文件到web服务器即可
+```
 ```
 #### 功能说明
 0、素材库
@@ -118,15 +116,16 @@ go-mall意象商城后台管理系统(目前版本v1.3)基于当前流行技术�
 
 #### 技术选型
 * 1 后端使用技术
-    * 1.1 beego2.x
+    * 1.1 gin
     * 1.2 jwt
     * 1.3 redis
     * 1.5 Mysql8
-    * 1.6 Go1.15.x
+    * 1.6 Gorm
     * 1.7 copier
     * 1.8 ksuid
     * 1.9 Redis
     * 1.10 swagger
+    * 1.11 Casbin
         
 * 前端使用技术
     * 2.1 Vue 全家桶
@@ -134,7 +133,10 @@ go-mall意象商城后台管理系统(目前版本v1.3)基于当前流行技术�
 
 #### 特别鸣谢
 
-- beego:https://github.com/beego/beego/
+- go-gin-example:https://github.com/EDDYCJY/go-gin-example
+- gorm:https://gorm.io/
+- casbin:https://casbin.org/
 - vue:https://github.com/vuejs/vue
 - element:https://github.com/ElemeFE/element
 - eladmin-web:https://github.com/elunez/eladmin-web
+

@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(username, password, code, uuid) {
   return request({
-    url: 'admin/auth/login',
+    url: 'auth/login',
     method: 'post',
     data: {
       username,
@@ -22,7 +22,7 @@ export function getInfo() {
 
 export function getCodeImg() {
   return request({
-    url: 'admin/auth/captcha',
+    url: 'auth/captcha',
     method: 'get'
   })
 }
