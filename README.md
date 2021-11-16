@@ -74,7 +74,7 @@ VUE_APP_BASE_API  = 'http://localhost:8080'  //配置后端api即可
 4、本地运行：npm run dev
 5、线上部署：npm run build 然后上传./dist/下编译后的文件到web服务器即可
 ```
-```
+
 #### 功能说明
 0、素材库
 | ![输入图片说明](https://images.gitee.com/uploads/images/2021/1009/111026_1317d805_477893.png "suicai.png") |
