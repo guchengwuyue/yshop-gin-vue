@@ -22,6 +22,8 @@ import './assets/styles/index.scss'
 import VueHighlightJS from 'vue-highlightjs'
 import 'highlight.js/styles/atom-one-dark.css'
 
+import '@/assets/font_icon/iconfont.css'
+
 import App from './App'
 import store from './store'
 import router from './router/routers'
@@ -29,8 +31,8 @@ import router from './router/routers'
 import './assets/icons' // icon
 import './router/index' // permission control
 
-import {VueJsonp} from 'vue-jsonp'
-//Vue.use(VueJsonp)
+import { VueJsonp } from 'vue-jsonp'
+// Vue.use(VueJsonp)
 
 Vue.use(VueHighlightJS)
 Vue.use(mavonEditor)

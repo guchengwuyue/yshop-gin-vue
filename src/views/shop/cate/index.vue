@@ -25,7 +25,7 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="排序">
-          <el-input v-model="form.sort" style="width: 370px;" />
+          <el-inpute v-model="form.sort" style="width: 370px;" />
         </el-form-item>
         <el-form-item style="margin-bottom: 0;" label="上级分类" prop="pid">
           <treeselect v-model="form.pid" :options="depts" :normalizer="normalizer" style="width: 370px;" placeholder="选择上级分类" />

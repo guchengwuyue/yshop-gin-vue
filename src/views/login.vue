@@ -13,6 +13,7 @@
           <li>Jwt</li>
           <li>Redis</li>
           <li>Vue</li>
+          <li>Wechat</li>
         </ul>
         <h3 style="color: #ffffff;">
           后台地址:https://go.yixiang.co
@@ -20,7 +21,7 @@
       </div>
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" label-position="left" label-width="0px" class="login-form">
       <h3 class="title">
-        yshop-gin商城后台管理系统-1.0
+        yshop-gin商城后台管理系统-1.2
       </h3>
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">

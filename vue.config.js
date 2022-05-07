@@ -68,6 +68,21 @@ module.exports = {
     config.plugins.delete('preload') // TODO: need test
     config.plugins.delete('prefetch') // TODO: need test
 
+
+    // sass-resources-loader
+    config.module
+      .rule('scss')
+      .oneOfs
+      .store
+      .forEach(item => {
+        item.use('sass-resources-loader')
+          .loader('sass-resources-loader')
+          .options({
+            resources: ['./src/assets/styles/contaner.scss']
+          })
+          .end()
+      })
+
     // set svg-sprite-loader
     config.module
       .rule('svg')
