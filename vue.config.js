@@ -44,6 +44,13 @@ module.exports = {
           '^/weixin': 'weixin'
         }
       },
+      '/tools': {
+        target: process.env.VUE_APP_BASE_API,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/tools': 'tools'
+        }
+      },
       '/auth': {
         target: process.env.VUE_APP_BASE_API,
         changeOrigin: true,

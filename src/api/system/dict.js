@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getDicts() {
   return request({
-    url: 'admin/dict/all',
+    url: 'admin/dict',
     method: 'get'
   })
 }
