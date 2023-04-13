@@ -21,7 +21,7 @@
       </div>
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" label-position="left" label-width="0px" class="login-form">
       <h3 class="title">
-        yshop-gin商城后台管理系统-1.2
+        yshop-gin商城后台管理系统-1.3
       </h3>
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
